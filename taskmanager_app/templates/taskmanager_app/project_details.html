@@ -1,0 +1,17 @@
+{% extends 'taskmanager_app/base.html' %}
+
+{% block title %}
+	{{ project.title }}
+{% endblock %}
+
+
+{% block body %}
+	<div  style="max-width: 200px;">
+	  <p>
+	    {{ project.description }}
+	  </p>
+	  <p class="mb-0">
+	    {{ project.end_date }}
+	  </p>
+	</div>
+{% endblock %}

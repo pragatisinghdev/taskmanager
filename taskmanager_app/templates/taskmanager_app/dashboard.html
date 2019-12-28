@@ -1,0 +1,33 @@
+{% extends 'taskmanager_app/base.html' %}
+{% load static %}
+
+
+{% block title %}
+  Pragati Task Management
+{% endblock %}
+
+
+{% block body %}
+<div class="row">
+    {% for project in projects %}
+    <div class="column" style="margin: 30px; align-items: center;">
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="{% static project.file %}" alt="Screenshot" class="card-img">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{project.title}}</h5>
+                <p class="card-text">{{project.description}}</p>
+                <p class="card-text"><small class="text-muted">To be Completed By: {{project.end_date}}</small></p>
+                <a href="{% url 'taskmanager_app:project_detail' project.id %}" class="btn btn-info">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
